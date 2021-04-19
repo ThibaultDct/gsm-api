@@ -1,10 +1,8 @@
-version: 2.1
-
-orbs:
-  rust: circleci/rust@1.5.0
-
-workflows:
-  production:
-    jobs:
-      - rust/lint-test-build:
-          release: false
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/rust@1.5.0
+    steps:
+      - run: apk add openssl
+      - run: cargo build
