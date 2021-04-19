@@ -1,8 +1,13 @@
-version: 2
+version: 2.1
+
+orbs:
+  image: circleci/rust@1.5.0
+
 jobs:
   build:
     docker:
       - image: circleci/rust@1.5.0
     steps:
+      - checkout
       - run: apk add openssl
       - run: cargo build
